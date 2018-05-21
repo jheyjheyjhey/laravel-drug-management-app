@@ -26,5 +26,5 @@ Route::resource('/patients', 'PatientsController')->only([
     'create', 'store'
 ]);
 Route::resource('/transactions', 'TransactionsController')->only([
-    'create', 'store'
+    'create', 'store', 'index'
 ]);

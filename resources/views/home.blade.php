@@ -49,13 +49,13 @@
                             <div class="col-sm-12">
                                 <div class="card card text-white bg-dark mb-3">
                                     <div class="card-body text-center">
-                                        <h2 class="display-2">{{ $drug_count }}</h2>
+                                        <h2 class="display-2">{{ $transactions_count }}</h2>
                                         <h2>Total Transaction(s)</h2>
                                         <hr>
-                                        <a href="{{ action('ProductsController@create') }}">
+                                        <a href="{{ action('TransactionsController@index') }}">
                                             <button class="btn btn-default">View Transactions</button>
                                         </a>                                        
-                                        <a href="{{ action('ProductsController@create') }}">
+                                        <a href="{{ action('TransactionsController@create') }}">
                                             <button class="btn btn-default">Create new Transaction</button>
                                         </a>                                        
                                     </div>
