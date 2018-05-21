@@ -30,10 +30,10 @@
                                     <input type="text" class="form-control" name="generic_name" required>
                                 </div>
                                 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="drug_code">Code</label>
                                     <input type="text" class="form-control" name="drug_code" required>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group">
                                     <label for="drug_price">Price</label>
