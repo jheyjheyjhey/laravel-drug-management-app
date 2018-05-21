@@ -24,7 +24,9 @@
                                         <h2 class="display-2">{{ $patient_count }}</h2>
                                         <h2>Patient(s)</h2>
                                         <hr>
-                                        <button class="btn btn-default">Add Patient</button>
+                                        <a href="{{ action('PatientsController@create') }}">
+                                            <button class="btn btn-default">Add Patient</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -38,8 +40,7 @@
                                         <hr>
                                         <a href="{{ action('ProductsController@create') }}">
                                             <button class="btn btn-default">Add Drug</button>
-                                        </a>
-                                        
+                                        </a>                                        
                                     </div>
                                 </div>
                             </div>
