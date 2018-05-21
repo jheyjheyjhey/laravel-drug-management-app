@@ -19,5 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/drugs', 'ProductsController');
-Route::resource('/patients', 'PatientsController');
+Route::resource('/drugs', 'ProductsController')->only([
+    'create', 'store'
+]);
+Route::resource('/patients', 'PatientsController')->only([
+    'create', 'store'
+]);
