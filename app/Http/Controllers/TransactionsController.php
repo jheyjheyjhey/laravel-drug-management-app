@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Transactions;
 use App\Patients;
 use App\Products;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TransactionsController extends Controller
@@ -17,7 +17,23 @@ class TransactionsController extends Controller
      */
     public function index()
     {
-        //
+        $transaction_arr = array();
+        $transactions = Transactions::all();
+
+        foreach($transactions as $transaction) {
+            $patient = Patients::findOrFail($transaction->patient_id);
+            $product = Products::findOrFail($transaction->product_id);
+            $transaction_arr[] = array(
+                'date'      =>  Carbon::parse($transaction->created_at)->toFormattedDateString(),
+                'patient'   =>  "$patient->last_name, $patient->first_name",
+                'product'   =>  "[$product->generic] $product->name",
+                'quantity'  =>  $transaction->quantity  
+            );
+        }
+
+        return view('transactions.index', array(
+            'transactions'  =>  $transaction_arr
+        ));
     }
 
     /**
