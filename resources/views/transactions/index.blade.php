@@ -15,14 +15,21 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    
+                    <br>
+                    <div class="text-right">
+                        <a href="{{ action('TransactionsController@create') }}">
+                            <button class="btn btn-info">Create new Transaction</button>
+                        </a>    
+                    </div>
+                    <br>
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <td>Date</td>
-                                <td>Patient</td>
-                                <td>Drug</td>
-                                <td>Quantity</td>
+                                <th>Date</th>
+                                <th>Patient</th>
+                                <th>Drug</th>
+                                <th>Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
