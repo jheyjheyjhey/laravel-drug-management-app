@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Patients;
+use App\Products;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $patient_count = Patients::all()->count();
+        $drug_count = Products::all()->count();
+
+        return view('home', array(
+            'patient_count' =>  $patient_count,
+            'drug_count'    =>  $drug_count,
+        ));
     }
 }

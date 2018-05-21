@@ -25,6 +25,7 @@ class ProductsController extends Controller
     public function create()
     {
         //
+        return view('products.create');
     }
 
     /**
@@ -35,7 +36,14 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $products = new Products;
+        $products->name = $request->drug_name;
+        $products->generic = $request->generic_name;
+        $products->unit_price = $request->drug_price;
+        $products->save();
+
+        $request->session()->flash('status', 'New Drug Added!');
+        return redirect('/drugs/create');
     }
 
     /**
