@@ -14,7 +14,20 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        $products_arr = array();
+        $products = Products::all();
+
+        foreach ($products as $product) {
+            $products_arr[] = array(
+                'name'          =>  $product->name,
+                'generic_name'  =>  $product->generic,
+                'price'         =>  $product->unit_price,
+                'quantity'      =>  $product->quantity,
+            );
+        }
+        return view('products.index', array(
+            'drugs' =>  $products_arr
+        ));
     }
 
     /**
@@ -46,7 +59,7 @@ class ProductsController extends Controller
         $products->save();
 
         $request->session()->flash('status', 'New Drug Added!');
-        return redirect('/home');
+        return back();
     }
 
     /**

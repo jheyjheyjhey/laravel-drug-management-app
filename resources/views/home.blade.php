@@ -38,6 +38,9 @@
                                         <h2 class="display-2">{{ $drug_count }}</h2>
                                         <h2>Drug(s) on Stock</h2>
                                         <hr>
+                                        <a href="{{ action('ProductsController@index') }}">
+                                            <button class="btn btn-default">View Inventory</button>
+                                        </a>      
                                         <a href="{{ action('ProductsController@create') }}">
                                             <button class="btn btn-default">Add Drug</button>
                                         </a>                                        

@@ -44,7 +44,7 @@ class PatientsController extends Controller
         $patients->save();
 
         $request->session()->flash('status', 'New Patient Added!');
-        return redirect('/home');
+        return back();
     }
 
     /**

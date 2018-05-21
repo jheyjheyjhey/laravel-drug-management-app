@@ -98,7 +98,7 @@ class TransactionsController extends Controller
         $drug->save();
 
         $request->session()->flash('status', 'New Transaction Added!');
-        return redirect('/home');
+        return back();
 
     }
 
