@@ -14,7 +14,7 @@ class PatientsController extends Controller
      */
     public function index()
     {
-        //
+        // 
     }
 
     /**
@@ -24,7 +24,7 @@ class PatientsController extends Controller
      */
     public function create()
     {
-        //
+        return view('patients.create');
     }
 
     /**
@@ -35,7 +35,16 @@ class PatientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $patients = new Patients;
+        $patients->first_name = $request->first_name;
+        $patients->last_name = $request->last_name;
+        $patients->birthday = $request->birthday;
+        $patients->pin_number = $request->pin_number;
+        $patients->room_number = $request->room_number;
+        $patients->save();
+
+        $request->session()->flash('status', 'New Patient Added!');
+        return redirect('/home');
     }
 
     /**
