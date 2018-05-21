@@ -17,11 +17,9 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('company');
-            $table->integer('dosage');
-            $table->integer('generic');
-            $table->integer('pack_size');
-            $table->decimal('pack_price', 8, 2);
+            $table->string('generic');
             $table->decimal('unit_price', 8, 2);
+            $table->integer('quantity');
             $table->integer('status');
             $table->softDeletes();
             $table->timestamps();
