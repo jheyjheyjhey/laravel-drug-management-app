@@ -16,6 +16,8 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('products-table', require('./components/ProductsTable.vue'));
+Vue.component('app-dashboard', require('./components/Dashboard.vue'));
 
 const app = new Vue({
     el: '#app'
