@@ -38,12 +38,15 @@ class ProductsController extends Controller
     {
         $products = new Products;
         $products->name = $request->drug_name;
+        $products->company = 1;
         $products->generic = $request->generic_name;
         $products->unit_price = $request->drug_price;
+        $products->quantity = $request->qty;
+        $products->status = 1;
         $products->save();
 
         $request->session()->flash('status', 'New Drug Added!');
-        return redirect('/drugs/create');
+        return redirect('/home');
     }
 
     /**
