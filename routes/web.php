@@ -23,7 +23,7 @@ Route::resource('/drugs', 'ProductsController')->only([
     'create', 'store', 'index'
 ]);
 Route::resource('/patients', 'PatientsController')->only([
-    'create', 'store'
+    'create', 'store', 'index'
 ]);
 Route::resource('/transactions', 'TransactionsController')->only([
     'create', 'store', 'index'
