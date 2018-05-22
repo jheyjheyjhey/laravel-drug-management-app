@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Patients;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class PatientsController extends Controller
 {
@@ -14,7 +15,20 @@ class PatientsController extends Controller
      */
     public function index()
     {
-        // 
+        $patients_arr = array();
+        $patients = patients::all();
+
+        foreach ($patients as $patient) {
+            $patients_arr[] = array(
+                'name'          =>  "$patient->last_name, $patient->first_name",
+                'birthday'      =>  Carbon::parse($patient->birthday)->toFormattedDateString(),
+                'pin_number'    =>  $patient->pin_number,
+                'room_number'   =>  $patient->room_number,
+            );
+        }
+        return view('patients.index', array(
+            'patients' =>  $patients_arr
+        ));
     }
 
     /**
