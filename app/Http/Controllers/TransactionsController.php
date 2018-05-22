@@ -52,7 +52,7 @@ class TransactionsController extends Controller
         foreach ($patient_list as $patient) {
             $patient_arr[] = array(
                 'patient_id'    =>  $patient->id,
-                'patient_name'  =>  "$patient->last_name, $patient->first_name"
+                'patient_name'  =>  "$patient->last_name, $patient->first_name $patient->middle_name"
             );
         }
         
