@@ -21,13 +21,13 @@
                             <form role="form" method="POST" action="/drugs">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="drug_name">Name</label>
-                                    <input type="text" class="form-control" name="drug_name" required>
+                                    <label for="generic_name">Generic Name</label>
+                                    <input type="text" class="form-control" name="generic_name" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="generic_name">Generic Name</label>
-                                    <input type="text" class="form-control" name="generic_name" required>
+                                    <label for="drug_name">Name</label>
+                                    <input type="text" class="form-control" name="drug_name" required>
                                 </div>
                                 
                                 <!-- <div class="form-group">
