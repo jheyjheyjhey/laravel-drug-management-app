@@ -28,12 +28,12 @@
                                 <div class="form-group">
                                     <label for="last_name">Last Name</label>
                                     <input type="text" class="form-control" name="last_name" required>
+                                </div>                                
+
+                                <div class="form-group">
+                                    <label for="middle_name">Last Name</label>
+                                    <input type="text" class="form-control" name="middle_name" required>
                                 </div>
-                                
-                                <!-- <div class="form-group">
-                                    <label for="drug_code">Code</label>
-                                    <input type="text" class="form-control" name="drug_code" required>
-                                </div> -->
 
                                 <div class="form-group">
                                     <label for="birthday">Birthday</label>
@@ -42,7 +42,7 @@
                                 
                                 <div class="form-group">
                                     <label for="pin_number">PIN Number</label>
-                                    <input type="number" class="form-control" name="pin_number" required>
+                                    <input type="text" class="form-control" name="pin_number" required>
                                 </div>
 
                                 <div class="form-group">

@@ -52,6 +52,7 @@ class PatientsController extends Controller
         $patients = new Patients;
         $patients->first_name = $request->first_name;
         $patients->last_name = $request->last_name;
+        $patients->middle_name = $request->middle_name;
         $patients->birthday = $request->birthday;
         $patients->pin_number = $request->pin_number;
         $patients->room_number = $request->room_number;
