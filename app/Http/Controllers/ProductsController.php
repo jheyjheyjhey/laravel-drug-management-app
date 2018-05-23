@@ -19,10 +19,15 @@ class ProductsController extends Controller
 
         foreach ($products as $product) {
             $products_arr[] = array(
-                'name'          =>  $product->name,
-                'generic_name'  =>  $product->generic,
-                'price'         =>  $product->unit_price,
-                'quantity'      =>  $product->quantity,
+                'id'                =>  $product->id,
+                'inventory_code'    =>  $product->inventory_code,
+                'expiry_date'       =>  $product->expiry_date,
+                'lot_number'        =>  $product->lot_number,
+                'manufacturer'      =>  $product->manufacturer,
+                'name'              =>  $product->name,
+                'generic_name'      =>  $product->generic,
+                'price'             =>  $product->unit_price,
+                'quantity'          =>  $product->quantity,
             );
         }
         return view('products.index', array(
@@ -86,9 +91,13 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function edit(Products $products)
+    public function edit($id)
     {
-        //
+        $product = Products::findOrFail($id)->toArray();
+
+        return view('products.edit', array(
+            'drugs' =>  $product
+        ));
     }
 
     /**
@@ -98,9 +107,27 @@ class ProductsController extends Controller
      * @param  \App\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Products $products)
+    public function update(Request $request, Products $products, $id)
     {
-        //
+        $drug = Products::findOrFail($id);
+
+        $drug->name = "";
+        $drug->company = 1;
+        $drug->generic = $request->generic_name;
+        $drug->unit_price = $request->drug_price;
+        $drug->quantity = $request->qty;
+        $drug->status = 1;
+
+        // New stuff from first revision
+        $drug->inventory_code = $request->drug_code;
+        $drug->expiry_date = $request->expiry_date;
+        $drug->lot_number = $request->lot_number;
+        $drug->manufacturer = $request->manufacturer;
+
+        $drug->save();
+        $request->session()->flash('status', 'Changes Saved!');
+        return redirect('/drugs');
+
     }
 
     /**

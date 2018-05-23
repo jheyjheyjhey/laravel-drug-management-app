@@ -26,19 +26,21 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Code</th>
                                 <th>Generic Name</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($drugs as $drug)
                                 <tr>
-                                    <td>{{ $drug['name'] }}</td>
+                                    <td>{{ $drug['inventory_code'] }}</td>
                                     <td>{{ $drug['generic_name'] }}</td>
                                     <td>{{ $drug['price'] }}</td>
                                     <td>{{ $drug['quantity'] }}</td>
+                                    <td><a href="/drugs/{{$drug['id']}}/edit"><button class="btn btn-success btn-xs">Edit</button></a></td>
                                 </tr>
                             @endforeach
                         </tbody>

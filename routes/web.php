@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/drugs', 'ProductsController')->only([
-    'create', 'store', 'index'
+    'create', 'store', 'index', 'edit', 'update'
 ]);
 Route::resource('/patients', 'PatientsController')->only([
     'create', 'store', 'index'
