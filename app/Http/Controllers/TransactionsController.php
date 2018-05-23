@@ -24,10 +24,14 @@ class TransactionsController extends Controller
             $patient = Patients::findOrFail($transaction->patient_id);
             $product = Products::findOrFail($transaction->product_id);
             $transaction_arr[] = array(
-                'date'      =>  Carbon::parse($transaction->created_at)->toFormattedDateString(),
-                'patient'   =>  "$patient->last_name, $patient->first_name",
-                'product'   =>  "[$product->generic] $product->name",
-                'quantity'  =>  $transaction->quantity  
+                'date'          =>  Carbon::parse($transaction->created_at)->toFormattedDateString(),
+                'patient'       =>  "$patient->last_name, $patient->first_name",
+                'product'       =>  "[$product->generic] $product->name",
+                'quantity'      =>  $transaction->quantity,                
+                'birthday'      =>  Carbon::parse($patient->birthday)->toFormattedDateString(),
+                'pin_number'    =>  $patient->pin_number,
+                'room_number'   =>  $patient->room_number,
+                'total_price'   =>  $transaction->quantity * $product->unit_price
             );
         }
 
@@ -52,7 +56,7 @@ class TransactionsController extends Controller
         foreach ($patient_list as $patient) {
             $patient_arr[] = array(
                 'patient_id'    =>  $patient->id,
-                'patient_name'  =>  "$patient->last_name, $patient->first_name $patient->middle_name"
+                'patient_name'  =>  "$patient->last_name, $patient->first_name $patient->middle_name",
             );
         }
         

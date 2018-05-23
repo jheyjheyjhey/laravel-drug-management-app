@@ -23,11 +23,14 @@
                         </a>    
                     </div>
                     <br>
-                    <table class="table table-hover">
+                    <table class="table table-hover table-responsive">
                         <thead>
                             <tr>
                                 <th>Date</th>
                                 <th>Patient</th>
+                                <th>Birthday</th>
+                                <th>PIN #</th>
+                                <th>Room #</th>
                                 <th>Drug</th>
                                 <th>Quantity</th>
                             </tr>
@@ -37,8 +40,12 @@
                                 <tr>
                                     <td>{{ $transaction['date'] }}</td>
                                     <td>{{ $transaction['patient'] }}</td>
+                                    <td>{{ $transaction['birthday'] }}</td>
+                                    <td>{{ $transaction['pin_number'] }}</td>
+                                    <td>{{ $transaction['room_number'] }}</td>                                    
                                     <td>{{ $transaction['product'] }}</td>
                                     <td>{{ $transaction['quantity'] }}</td>
+                                    <td><button onclick="alertUser({{ $transaction['total_price'] }})" class="btn btn-success btn-xs">Transcribe</button></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -49,4 +56,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    function alertUser(totalPrice) {
+        alert("The Order is not sent to the pharmacy (Total: PHP"+ totalPrice +")");
+    }
+</script>
 @endsection
