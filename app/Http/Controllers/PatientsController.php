@@ -20,7 +20,7 @@ class PatientsController extends Controller
 
         foreach ($patients as $patient) {
             $patients_arr[] = array(
-                'name'          =>  "$patient->last_name, $patient->first_name",
+                'name'          =>  "$patient->last_name, $patient->first_name $patient->middle_name",
                 'birthday'      =>  Carbon::parse($patient->birthday)->toFormattedDateString(),
                 'pin_number'    =>  $patient->pin_number,
                 'room_number'   =>  $patient->room_number,

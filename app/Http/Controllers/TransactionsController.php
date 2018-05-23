@@ -25,7 +25,7 @@ class TransactionsController extends Controller
             $product = Products::findOrFail($transaction->product_id);
             $transaction_arr[] = array(
                 'date'          =>  Carbon::parse($transaction->created_at)->toFormattedDateString(),
-                'patient'       =>  "$patient->last_name, $patient->first_name",
+                'patient'       =>  "$patient->last_name, $patient->first_name $patient->middle_name",
                 'product'       =>  "[$product->generic] $product->name",
                 'quantity'      =>  $transaction->quantity,                
                 'birthday'      =>  Carbon::parse($patient->birthday)->toFormattedDateString(),
