@@ -50,12 +50,19 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $products = new Products;
-        $products->name = $request->drug_name;
+        $products->name = "";
         $products->company = 1;
         $products->generic = $request->generic_name;
         $products->unit_price = $request->drug_price;
         $products->quantity = $request->qty;
         $products->status = 1;
+
+        // New stuff from first revision
+        $products->inventory_code = $request->drug_code;
+        $products->expiry_date = $request->expiry_date;
+        $products->lot_number = $request->lot_number;
+        $products->manufacturer = $request->manufacturer;
+
         $products->save();
 
         $request->session()->flash('status', 'New Drug Added!');

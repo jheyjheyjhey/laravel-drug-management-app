@@ -53,7 +53,7 @@
 
                                 <div class="form-group">
                                     <label for="drug_price">Unit Price</label>
-                                    <input type="text" class="form-control" name="drug_price" required>
+                                    <input type="number" class="form-control" name="drug_price" step="any" required>
                                 </div>
 
                                 <div class="form-group">
