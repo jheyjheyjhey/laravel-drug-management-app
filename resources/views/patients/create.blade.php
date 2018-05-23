@@ -31,7 +31,7 @@
                                 </div>                                
 
                                 <div class="form-group">
-                                    <label for="middle_name">Last Name</label>
+                                    <label for="middle_name">Middle Name</label>
                                     <input type="text" class="form-control" name="middle_name" required>
                                 </div>
 
