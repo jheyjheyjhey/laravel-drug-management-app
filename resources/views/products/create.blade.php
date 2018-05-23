@@ -20,23 +20,39 @@
                         <div class="col-sm-6">
                             <form role="form" method="POST" action="/drugs">
                                 @csrf
+
                                 <div class="form-group">
-                                    <label for="generic_name">Generic Name</label>
+                                    <label for="drug_code">Inventory Code</label>
+                                    <input type="text" class="form-control" name="drug_code" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="generic_name">Drug</label>
                                     <input type="text" class="form-control" name="generic_name" required>
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="expiry_date">Expiry Date</label>
+                                    <input type="date" class="form-control" name="expiry_date" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lot_number">Lot No.</label>
+                                    <input type="text" class="form-control" name="lot_number" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="manufacturer">Manufacturer</label>
+                                    <input type="text" class="form-control" name="manufacturer" required>
+                                </div>
+
+                                <!-- <div class="form-group">
                                     <label for="drug_name">Name</label>
                                     <input type="text" class="form-control" name="drug_name" required>
-                                </div>
-                                
-                                <!-- <div class="form-group">
-                                    <label for="drug_code">Code</label>
-                                    <input type="text" class="form-control" name="drug_code" required>
                                 </div> -->
 
                                 <div class="form-group">
-                                    <label for="drug_price">Price</label>
+                                    <label for="drug_price">Unit Price</label>
                                     <input type="text" class="form-control" name="drug_price" required>
                                 </div>
 
