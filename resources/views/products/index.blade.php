@@ -28,6 +28,9 @@
                             <tr>
                                 <th>Code</th>
                                 <th>Generic Name</th>
+                                <th>Expiry Date</th>
+                                <th>Lot No.</th>
+                                <th>Namufacturer</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th></th>
@@ -38,6 +41,9 @@
                                 <tr>
                                     <td>{{ $drug['inventory_code'] }}</td>
                                     <td>{{ $drug['generic_name'] }}</td>
+                                    <td>{{ $drug['expiry_date'] }}</td>
+                                    <td>{{ $drug['lot_number'] }}</td>
+                                    <td>{{ $drug['manufacturer'] }}</td>
                                     <td>{{ $drug['price'] }}</td>
                                     <td>{{ $drug['quantity'] }}</td>
                                     <td><a href="/drugs/{{$drug['id']}}/edit"><button class="btn btn-success btn-xs">Edit</button></a></td>
